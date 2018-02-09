@@ -1,0 +1,12 @@
+=begin
+
+YOUR TASK: Using the fewest lines of code possible, play every note (from lowest to highest) for ) 0.25 beats.
+
+=end
+use_synth :piano
+note = 0
+live_loop :play do
+  play note
+  sleep 0.25
+  note =note +1
+end
