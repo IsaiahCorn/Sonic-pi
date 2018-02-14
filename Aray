@@ -1,0 +1,14 @@
+use_synth :piano
+speed = 0.5
+notes  = [:d5, 3, :e5, 1, :f5, 4, :a5, 1.5, :g5, 1.5, :a5, 1, :c5, 4, :d5, 3, :e5, 1, :f5, 2, :e5, 2, :g5, 2, :a5, 2, :g5, 2, :f5, 3, :f5, 1, :f5, 1, :f5, 1, :a5, 1, :a5, 1, :g5, 1, :f5, 2, :a5, 1, :a5, 1, :a5, 1, :g5, 1, :a5, 1, :g5, 1, :f5, 2, :f5, 1, :f5, 1, :f5, 1, :a5, 1, :a5, 1, :g5, 1, :f5, 2, :a5, 1, :a5, 1, :a5, 2, :cs6, 1, :cs6, 1, :cs6, 2, :f5, 1, :f5, 1, :f5, 1, :a5, 1, :a5, 1, :g5, 1, :f5, 2, :as5, 1, :as5, 1, :as5, 1, :a5, 2, :c6, 2, :a5, 2, :cs6, 2, :d6, 4]
+
+intro1 = [:f5, :d5, :a4, :d5]
+live_loop :keys do
+  i = 0
+  intro1.length.times do
+    note = intro1[i]
+    play note, sustain: 0.3
+    sleep 0.5 * speed
+    i = i +1
+  end
+end
