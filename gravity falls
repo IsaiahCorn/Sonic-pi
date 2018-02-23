@@ -1,41 +1,13 @@
-#Gravity Falls
-#https://musescore.com/brycepoindexter/scores/1871671
-# Source Code:  https://github.com/eridem
 use_synth :piano
 speed = 0.5
-
-
 notes  = [:d5, 3, :e5, 1, :f5, 4, :a5, 1.5, :g5, 1.5, :a5, 1, :c5, 4, :d5, 3, :e5, 1, :f5, 2, :e5, 2, :g5, 2, :a5, 2, :g5, 2, :f5, 3, :f5, 1, :f5, 1, :f5, 1, :a5, 1, :a5, 1, :g5, 1, :f5, 2, :a5, 1, :a5, 1, :a5, 1, :g5, 1, :a5, 1, :g5, 1, :f5, 2, :f5, 1, :f5, 1, :f5, 1, :a5, 1, :a5, 1, :g5, 1, :f5, 2, :a5, 1, :a5, 1, :a5, 2, :cs6, 1, :cs6, 1, :cs6, 2, :f5, 1, :f5, 1, :f5, 1, :a5, 1, :a5, 1, :g5, 1, :f5, 2, :as5, 1, :as5, 1, :as5, 1, :a5, 2, :c6, 2, :a5, 2, :cs6, 2, :d6, 4]
 
-# Number of notes
-notesNumber = notes.length / 2
-
-duration = 0
-di = 0
-notesNumber.times do
-  duration += notes[di + 1]
-  di = di + 2
-end
-
-
-
-intro1 = [:f5, :d5, :a4, :d5]
-intro2 = [:f5, :c5, :a4, :c5]
-intro3 = [:e5, :cs5, :a4, :cs5]
-2.times do
+eagles1 = [:f5, :d5, :a4, :d5]
+eagles2 = [:e5, :cs5, :a4, :cs5]
+5.times do
   i = 0
-  intro1.length.times do
-    note = intro1[i]
-    play note, sustain: 0.3
-    sleep 0.5 * speed
-    i = i +1
-  end
-end
-2.times do
-  i = 0
-  intro2.length.times do
-    note = intro2[i]
-    play note, sustain: 0.3
+  4.times do
+    play eagles1[i], sustain: 0.3
     sleep 0.5 * speed
     i = i +1
   end
@@ -43,62 +15,57 @@ end
 drumVolume = 0
 4.times do
   i = 0
-  intro3.length.times do
-    note = intro3[i]
-    play note, sustain: 0.3
+  4.times do
+    eagles2
+    play eagles2 , sustain: 0.3
     sample :drum_snare_soft, amp: 0.1 * drumVolume
     sleep 0.5 * speed
     i = i + 1
     drumVolume = drumVolume + 1
   end
 end
-
-
-in_thread do
+sleep 3
+live_loop :mainloop do
+  
   i = 0
-  notesNumber.times do
-    note = notes[i]               # get note on 0,2,4,6,7, ... positions
-    length = notes[i + 1] * speed # get length on 1,3,5,7,9, ... positions
-    
-    play note, sustain: length    # play "note"
-    sleep length                  # wait for "long" time
-    i = i + 2                     # move to next note
+  eagles1.length.times do
+    note = eagles1[i]
+    play note, sustain: 0.3
+    sleep 0.5 * speed
+    i = i +1
   end
 end
-
-
-in_thread do
-  sleep (duration * speed) - (2 * speed)
-  sample :vinyl_rewind
-end
-
-
-in_thread do
+live_loop :m do
   
-  (duration / 16).times do
-    7.times do
-      sample :bd_boom,amp: 100
-      sample :drum_cymbal_closed, amp: 0.3
-      sleep speed
-      
-      sample :drum_snare_hard
-      sleep speed
-    end
+  7.times do
     sample :bd_boom,amp: 100
     sample :drum_cymbal_closed, amp: 0.3
-    sleep speed / 2
+    sleep 1
     
     sample :drum_snare_hard
-    sample :drum_splash_soft, amp: 0.5
-    
-    sleep speed / 2
-    
-    sample :drum_snare_hard
-    sample :drum_splash_soft, amp:0.5
-    sleep speed / 2
-    
-    sample :drum_snare_hard
-    sample :drum_splash_hard, amp:0.5
-    sleep speed / 2
+    sleep 1
   end
+  sample :bd_boom,amp: 100
+  sample :drum_cymbal_closed, amp: 0.3
+  sleep 1
+  
+  sample :drum_snare_hard
+  sample :drum_splash_soft, amp: 0.5
+  
+  sleep 1
+  
+  sample :drum_snare_hard
+  sample :drum_splash_soft, amp: 0.5
+  sleep 1
+  
+  sample :drum_snare_hard
+  sample :drum_splash_hard, amp: 0.5
+  sleep 1
+end
+live_loop :strategy3 do
+  
+  c = [:f5, :d5, :a4, :d5]
+  print c
+  play c[dice(6)],amp: 2
+  sleep 0.3
 end
