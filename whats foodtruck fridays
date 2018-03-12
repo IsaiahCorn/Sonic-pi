@@ -1,42 +1,32 @@
 =begin
 
-1. Use three different methods to choose random notes from the 'notes' array.
-2. DO NOT CHANGE ANY CODE, just assign values to the variables 'a', 'b', and 'c'.
-3. Use the blue values that print in the log to troubleshoot.
-4. Use the '=begin' and '=end' to comment out the two strategies you are not currently working on!
+TASK 1: Define a function that has 5 parameters (four notes and one sleep time). Hit "Run" and nothing should play.
+
+TASK 2: Call your function and give it five arguments (the four notes on lines 16, 18, 20, & 22 plus the sleep time). Hit run and you should hear four notes play.
+
+TASK 3: Call your function twice in a live_loop so the entire Stranger Things Theme repeats.
 
 =end
 
-
-# Stranger Things Main Theme
 use_bpm 160
 use_synth :saw
-notes = [:c2, :e2, :g2, :b2, :c3, :b2, :g2, :e2]
 
 
-live_loop :strategy1 do
-  # assign a value to 'a' using the .choose method from the Randomisation reading on Tuesday
-  a = [:c2, :e2, :g2, :b2, :c3, :b2, :g2, :e2]
-  print a
-  play a
+#define your function with parameters
+define :eagles do |go_eagles|
+  play go_eagles, release: 1
   sleep 0.5
 end
 
-
-
-live_loop :strategy2 do
-  # assign a value to 'b' that will be used as the index value
-  b = [:c2, :e2, :g2, :b2, :c3, :b2, :g2, :e2]
-  print b
-  play choose(b), release: rrand(1,3)
-  sleep 0.5
+live_loop :eagles do
+  eagles :c2
+  eagles :e2
+  eagles :g2
+  eagles :b2
+  eagles :c3
+  eagles :b2
+  eagles :g2
+  eagles :e2
 end
 
 
-live_loop :strategy3 do
-  # assign a value to 'c' that will be used as the index value
-  c = [:c2, :e2, :g2, :b2, :c3, :b2, :g2, :e2]
-  print c
-  play c[dice(7)]
-  sleep 0.5
-end
