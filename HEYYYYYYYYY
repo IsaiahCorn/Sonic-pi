@@ -1,0 +1,43 @@
+hey_bob="C:/Users/Sonny/Downloads/Samples Window Seat/Intro Vocals.wav"
+heey_bob="C:/Users/Sonny/Downloads/Samples Window Seat/Vocals Main.wav"
+hi_hat="C:/Users/Sonny/Downloads/Samples Window Seat/hi hat_bip.wav"
+hi_hat2="C:/Users/Sonny/Downloads/Samples Window Seat/hi hat_bip_1.wav"
+kick_dud="C:/Users/Sonny/Downloads/Samples Window Seat/Kick_bip.wav"
+crash_dud="C:/Users/Sonny/Downloads/Samples Window Seat/Crash 001_bip.wav"
+bass_808="C:/Users/Sonny/Downloads/Isaiah 808.wav"
+
+
+
+1.times do
+  sample hey_bob,amp: 5
+  sleep 23.4
+end
+sample heey_bob,amp: 4
+
+sample hi_hat,amp: 6
+
+sample hi_hat2,amp: 6
+
+sample kick_dud, amp: 6
+
+sample crash_dud, amp: 6
+
+sample bass_808, amp: 30
+
+use_bpm 82
+2.times do
+  use_synth :piano
+  
+  play :D3, sustain: 30
+  play :F3,sustain: 30
+  play :A3,sustain: 30
+  play :C4,sustain: 30
+  sleep 1.5
+  play :C4, sustain: 30
+  play :Eb3, sustain: 30
+  play :G3, sustain: 30
+  play :Bb3, sustain: 30
+  sleep 2.5
+end
+
+
