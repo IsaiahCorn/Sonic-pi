@@ -1,0 +1,78 @@
+#first samples
+hood_clasic="C:/Users/isaiah_cornelius/Downloads/Certified Hood Cliassic (Trap-A-Holics).wav"
+hey_bob="C:/Users/isaiah_cornelius/Downloads/Intro Vocals.wav"
+taco_truck="C:/Users/isaiah_cornelius/Downloads/Samples Window Seat/Samples Window Seat/Vocals Main.wav"
+hi_hat= "C:/Users/isaiah_cornelius/Downloads/hi hat_bip.wav"
+hi_hat2= "C:/Users/isaiah_cornelius/Downloads/hi hat_bip_1.wav"
+kick_dud= "C:/Users/isaiah_cornelius/Downloads/Kick_bip.wav"
+crash_dud= "C:/Users/isaiah_cornelius/Downloads/Crash 001_bip.wav"
+bass_808= "C:/Users/isaiah_cornelius/Downloads/Isaiah 808.wav"
+
+a = [5, 20, 5, 16, 6, 6] #array for amps
+b =[5,6,6,7,8,5,5.5]
+
+#first song
+define :piano do |e| #parameterized function
+  play :D3, sustain: e
+  play :F3,sustain: e
+  play :A3,sustain: e
+  play :C4,sustain: e
+  sleep 1.5
+  play :C4, sustain: e
+  play :Eb3, sustain: e
+  play :G3, sustain: e
+  play :Bb3, sustain: e
+  sleep 2.5
+end
+
+
+
+sample hood_clasic, amp: 5
+sleep 3
+sample hey_bob, amp: rrand(5,4)
+sleep 23.4
+#=end
+
+a=1
+
+live_loop :taco_man do
+  sample taco_truck, amp: 5
+  sleep 46
+end
+a=a+1
+
+live_loop :man_taco do
+  sample bass_808, amp: a
+  sleep 48
+end
+a=a+1
+
+live_loop :out_man do
+  sample crash_dud,amp: a
+  sleep 48
+end
+a=a+1
+
+live_loop :man_out do
+  sample kick_dud,amp: a
+  sleep 48
+end
+a=a+1
+
+live_loop :bear_hug do
+  sample hi_hat2, amp: a
+  sleep 48
+end
+a=a+1
+
+live_loop :lane_butler do
+  sample hi_hat, amp: a
+  sleep 48
+end
+
+
+use_bpm 82
+2.times do
+  use_synth :piano
+  piano (20)
+end
