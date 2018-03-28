@@ -1,0 +1,54 @@
+
+wii_intro="C:/Users/isaiah_cornelius/Downloads/Wii Music for Isaiah/Wii Music for Isaiah/Wii Full Intro.wav"
+wii_riser="C:/Users/isaiah_cornelius/Downloads/Wii Music for Isaiah/Wii Music for Isaiah/Wii Music Riser.wav"
+wii_808= "C:/Users/isaiah_cornelius/Downloads/Wii Music for Isaiah/Wii Music for Isaiah/Wii 808 full.wav"
+wii_kick="C:/Users/isaiah_cornelius/Downloads/Wii Music for Isaiah/Wii Music for Isaiah/Wii Kick Full.wav"
+wii_crash="C:/Users/isaiah_cornelius/Downloads/Wii Music for Isaiah/Wii Music for Isaiah/Wii Crash Full.wav"
+wii_main="C:/Users/isaiah_cornelius/Downloads/Wii Music for Isaiah/Wii Music for Isaiah/Wii Full Main Music.wav"
+damn_son="C:/Users/isaiah_cornelius/Desktop/Damn Son, Where'd You Find This.wav"
+wii_snare="C:/Users/isaiah_cornelius/Downloads/Wii Music for Isaiah/Wii Music for Isaiah/Wii Snare Full .wav"
+
+b =[5,6,6,7,8,5,5.5]
+
+sample wii_intro, amp: 5
+sleep 18
+sample wii_riser, amp: rrand(5,4)
+sleep 1
+
+b=1
+
+live_loop :damn_boy do
+  sample damn_son, amp: 6
+  sleep 300
+end
+b=b+1
+
+sleep 1
+
+live_loop :wii_loop do
+  sample wii_main,amp: 6
+  sleep 40
+end
+b=b+1
+
+live_loop :wii_boop do
+  sample wii_kick, amp: 7
+  sleep 40
+end
+b=b+1
+live_loop :wii_809 do
+  sample wii_808, amp: 8
+  sleep 40
+end
+b=b+1
+
+live_loop :wii_bash do
+  sample wii_crash, amp: 5
+  sleep 40
+end
+b=b+1
+
+live_loop :wii_bear do
+  sample wii_snare, amp: 5.5
+  sleep 40
+end
